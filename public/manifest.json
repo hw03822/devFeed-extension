@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "React 크롬 익스텐션 예제",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [],
+  "icons": {
+    "128": "icon.png"
+  }
+}
