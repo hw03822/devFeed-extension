@@ -1,0 +1,14 @@
+[
+  {
+    "name": "카카오",
+    "link": "https://tech.kakao.com/blog/",
+    "rss": "https://tech.kakao.com/rss",
+    "category": "company"
+  },
+  {
+    "name": "토스",
+    "link": "https://toss.tech/",
+    "rss": "https://toss.tech/rss.xml",
+    "category": "company"
+  }
+]
