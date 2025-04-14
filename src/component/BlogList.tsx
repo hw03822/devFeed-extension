@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Button from "./Button";
 
 type Blog = {
   name: string;
@@ -9,22 +10,6 @@ type Blog = {
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
-
-  const handleSubscribe = (blog: Blog) => {
-    let subscribeBlogs = JSON.parse(
-      localStorage.getItem("subscribedBlogs") || "[]"
-    );
-
-    if (!subscribeBlogs.includes(blog.name)) {
-      subscribeBlogs.push(blog.name);
-      localStorage.setItem("subscribedBlogs", JSON.stringify(subscribeBlogs));
-      alert(`${blog.name} 가 구독되었습니다.`);
-    } else {
-      subscribeBlogs = subscribeBlogs.filter((item: any) => item !== blog.name);
-      localStorage.setItem("subscribedBlogs", JSON.stringify(subscribeBlogs));
-      alert(`${blog.name} 를 구독해제하였습니다.`);
-    }
-  };
 
   useEffect(() => {
     const fetchJSON = async () => {
@@ -68,27 +53,7 @@ const BlogList = () => {
             <p className="text-gray-600 text-sm mb-6">{blog.category}</p>
 
             {/* 버튼 */}
-            {(localStorage.getItem("subscribedBlogs") || "[]").includes(
-              blog.name
-            ) ? (
-              <button
-                className="w-full py-3 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
-                onClick={() => {
-                  handleSubscribe(blog);
-                }}
-              >
-                구독중
-              </button>
-            ) : (
-              <button
-                className="w-full py-3 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
-                onClick={() => {
-                  handleSubscribe(blog);
-                }}
-              >
-                + 구독
-              </button>
-            )}
+            <Button blog={blog} />
           </div>
         </div>
       ))}
