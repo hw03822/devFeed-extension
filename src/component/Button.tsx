@@ -9,10 +9,11 @@ type Blog = {
 
 type Props = {
   blog: Blog;
+  is: boolean;
 };
 
-const Button = ({ blog }: Props) => {
-  const [isSubscribe, setIsSubscribe] = useState(false);
+const Button = ({ blog, is }: Props) => {
+  const [isSubscribe, setIsSubscribe] = useState(is);
 
   const handleSubscribe = (blog: Blog) => {
     let subscribeBlogs = JSON.parse(
